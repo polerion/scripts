@@ -1,0 +1,18 @@
+; почерпнуто из https://habr.com/ru/post/74839/
+; чтобы видеть нормально русские символы для git reflog нужно еще iconv
+[core]
+        repositoryformatversion = 0
+        filemode = false
+        bare = false
+        logallrefupdates = true
+        symlinks = false
+        ignorecase = true
+        quotepath = false 
+        pager = cat|more.com
+        ; альтернатива, скачать: iconv.exe, libcharset1.dll, libiconv2.dll, libintl3.dll  (http://gnuwin32.sourceforge.net/packages/libiconv.htm) и положить рядом с git.exe
+        ; заменить опцию pager на
+        ; pager = iconv.exe -f cp1251 -t utf-8 | less
+        editor = \"C:\\Users\\User1\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe\" --wait
+[i18n]
+        commitencoding = cp1251
+        logoutputencoding = cp866
