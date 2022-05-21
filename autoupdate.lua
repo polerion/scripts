@@ -1,8 +1,8 @@
-script_name('Autoupdate script') -- название скрипта
-script_author('FORMYS') -- автор скрипта
-script_description('Autoupdate') -- описание скрипта
+script_name('Autoupdate script') -- Г­Г Г§ГўГ Г­ГЁГҐ Г±ГЄГ°ГЁГЇГІГ 
+script_author('FORMYS') -- Г ГўГІГ®Г° Г±ГЄГ°ГЁГЇГІГ 
+script_description('Autoupdate') -- Г®ГЇГЁГ±Г Г­ГЁГҐ Г±ГЄГ°ГЁГЇГІГ 
 
-require "lib.moonloader" -- подключение библиотеки
+require "lib.moonloader" -- ГЇГ®Г¤ГЄГ«ГѕГ·ГҐГ­ГЁГҐ ГЎГЁГЎГ«ГЁГ®ГІГҐГЄГЁ
 local dlstatus = require('moonloader').download_status
 local inicfg = require 'inicfg'
 local keys = require "vkeys"
@@ -13,8 +13,8 @@ u8 = encoding.UTF8
 
 update_state = false
 
-local script_vers = 1
-local script_vers_text = "1.00"
+local script_vers = 2
+local script_vers_text = "1.01"
 
 local script_path = thisScript().path
 local script_url = ''
@@ -35,7 +35,7 @@ function main()
         if status == dlstatus.STATUS_ENDDOWNLOADDATA then
             updateIni = inicfg.load (nil, update_path)
             if tonumber(updateIni.info.vers) > script_vers then
-                sampAddChatMessage('Есть обновление. Версия: ' .. updateIni.info.vers_text, -1) 
+                sampAddChatMessage('Г…Г±ГІГј Г®ГЎГ­Г®ГўГ«ГҐГ­ГЁГҐ. Г‚ГҐГ°Г±ГЁГї: ' .. updateIni.info.vers_text, -1) 
                 update_state = true
             end
             os.remove(update_path)
@@ -48,7 +48,7 @@ function main()
         if update_state then
             downloadUrlToFile(script_url, script_path, function(id, status)
                 if status == dlstatus.STATUS_ENDDOWNLOADDATA then
-                    sampAddChatMessage('Скрипт обновлён', -1)
+                    sampAddChatMessage('Г‘ГЄГ°ГЁГЇГІ Г®ГЎГ­Г®ГўГ«ВёГ­', -1)
 
                 end
             end)
@@ -57,5 +57,5 @@ function main()
 end
 
 function cmd_update(arg)
-    sampShowDialog(1000, "Автообновление", "Это урок по автообновлению", "Закрыть", "", 0)
+    sampShowDialog(1000, "ГЂГўГІГ®Г®ГЎГ­Г®ГўГ«ГҐГ­ГЁГҐ", "ГќГІГ® ГіГ°Г®ГЄ ГЇГ® Г ГўГІГ®Г®ГЎГ­Г®ГўГ«ГҐГ­ГЁГѕ", "Г‡Г ГЄГ°Г»ГІГј", "", 0)
 end
